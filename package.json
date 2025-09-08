@@ -1,0 +1,36 @@
+{
+  "name": "flower-delivery-back",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "start": "node main",
+    "dev": "nodemon main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanGodPro24/flower-delivery-back.git"
+  },
+  "keywords": [],
+  "author": "Ivan Nepotachev <vanyanep@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanGodPro24/flower-delivery-back/issues"
+  },
+  "homepage": "https://github.com/IvanGodPro24/flower-delivery-back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "joi": "^18.0.1",
+    "mongoose": "^8.18.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "eslint": "^9.35.0",
+    "globals": "^16.3.0",
+    "nodemon": "^3.1.10"
+  }
+}
