@@ -5,4 +5,3 @@ export const getFlowersController = async (req, res) => {
 
   res.json(flowers);
 };
-
