@@ -6,7 +6,7 @@ const orderSchema = new Schema(
       {
         flowerId: {
           type: Schema.Types.ObjectId,
-          ref: 'Flower',
+          ref: 'flowers',
           required: true,
         },
         quantity: {
@@ -47,4 +47,4 @@ const orderSchema = new Schema(
   },
 );
 
-export const Order = model('Order', orderSchema);
+export const Order = model('orders', orderSchema);
