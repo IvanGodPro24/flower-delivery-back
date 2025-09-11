@@ -17,7 +17,7 @@ const flowerSchema = new Schema(
     },
     shopId: {
       type: Schema.Types.ObjectId,
-      ref: 'shops',
+      ref: 'Shop',
       required: true,
     },
   },
@@ -27,4 +27,4 @@ const flowerSchema = new Schema(
   },
 );
 
-export const Flower = model('flowers', flowerSchema);
+export const Flower = model('Flower', flowerSchema);

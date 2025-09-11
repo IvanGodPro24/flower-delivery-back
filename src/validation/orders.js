@@ -21,3 +21,10 @@ export const createOrderSchema = Joi.object({
 export const updateOrderSchema = Joi.object({
   quantity: Joi.number().integer().min(1).required(),
 });
+
+export const createOrderItemSchema = Joi.object({
+  flowerId: Joi.string()
+    .regex(/^[0-9a-fA-F]{24}$/)
+    .required(),
+  quantity: Joi.number().integer().min(1).optional(),
+});

@@ -1,3 +1,4 @@
 import { Flower } from '../../db/models/Flower.js';
 
-export const getFlowers = () => Flower.find().populate('shopId', 'name');
+export const getFlowers = (filter = {}) =>
+  Flower.find(filter).populate('shopId', 'name');

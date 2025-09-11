@@ -1,14 +1,15 @@
 import createHttpError from 'http-errors';
+import { getFlowers } from '../../services/flowers/getFlowers.js';
 import { getShopsById } from '../../services/shops/getShopsById.js';
-import { getFlowersByShopId } from '../../services/shops/getFlowersByShopId.js';
 
-export const getFlowersByShopIdController = async (req, res) => {
+export const getFlowersByShopController = async (req, res) => {
   const { shopId } = req.params;
 
   const shop = await getShopsById(shopId);
+
   if (!shop) throw createHttpError(404, 'Shop not found');
 
-  const flowers = await getFlowersByShopId(shopId);
+    const flowers = await getFlowers({ shopId });
 
   res.json({
     shop: {

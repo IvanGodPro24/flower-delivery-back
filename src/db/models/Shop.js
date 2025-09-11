@@ -14,4 +14,4 @@ const shopSchema = new Schema(
   },
 );
 
-export const Shop = model('shops', shopSchema);
+export const Shop = model('Shop', shopSchema);
