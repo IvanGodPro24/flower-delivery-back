@@ -8,5 +8,5 @@ export const deleteOrderController = async (req, res) => {
 
   if (!deleted) throw createHttpError(404, 'Order not found');
 
-  res.json({ message: 'Order deleted successfully' });
+  res.json(deleted);
 };

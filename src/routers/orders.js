@@ -8,17 +8,39 @@ import { removeOrderItemController } from '../controllers/orders/removeOrderItem
 import { deleteOrderController } from '../controllers/orders/deleteOrderController.js';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
+  addToCartSchema,
   createOrderItemSchema,
   createOrderSchema,
+  finalizeOrderSchema,
   updateOrderSchema,
 } from '../validation/orders.js';
 import { validateBody } from '../middlewares/validateBody.js';
+import { addToCartController } from '../controllers/orders/addToCartController.js';
+import { finalizeOrderController } from '../controllers/orders/finalizeOrderController.js';
+import { getCartController } from '../controllers/orders/getCartController.js';
+import { getHistoryController } from '../controllers/orders/getHistoryController.js';
 
 const router = Router();
 
 router.get('/', ctrlWrapper(getOrdersController));
 
+router.get('/cart', ctrlWrapper(getCartController));
+
+router.get('/history', ctrlWrapper(getHistoryController));
+
 router.get('/:orderId', ctrlWrapper(getOrderByIdController));
+
+router.post(
+  '/cart',
+  validateBody(addToCartSchema),
+  ctrlWrapper(addToCartController),
+);
+
+router.patch(
+  '/:orderId/finalize',
+  validateBody(finalizeOrderSchema),
+  ctrlWrapper(finalizeOrderController),
+);
 
 router.post(
   '/',
