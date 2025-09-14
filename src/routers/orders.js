@@ -12,6 +12,7 @@ import {
   createOrderItemSchema,
   createOrderSchema,
   finalizeOrderSchema,
+  getOrderHistorySchema,
   updateOrderSchema,
 } from '../validation/orders.js';
 import { validateBody } from '../middlewares/validateBody.js';
@@ -26,7 +27,11 @@ router.get('/', ctrlWrapper(getOrdersController));
 
 router.get('/cart', ctrlWrapper(getCartController));
 
-router.get('/history', ctrlWrapper(getHistoryController));
+router.post(
+  '/history',
+  validateBody(getOrderHistorySchema),
+  ctrlWrapper(getHistoryController),
+);
 
 router.get('/:orderId', ctrlWrapper(getOrderByIdController));
 

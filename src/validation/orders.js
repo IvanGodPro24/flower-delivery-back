@@ -42,3 +42,9 @@ export const finalizeOrderSchema = Joi.object({
   phone: Joi.string().trim().min(1).required(),
   address: Joi.string().trim().min(1).required(),
 });
+
+export const getOrderHistorySchema = Joi.object({
+  email: Joi.string().email(),
+  phone: Joi.string().trim(),
+  orderId: Joi.string().hex().length(24),
+}).or('orderId', 'email');
